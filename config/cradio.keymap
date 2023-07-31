@@ -54,6 +54,11 @@ ZMK_COMBO(down,  &kp DOWN, 11 13, ALL)
 ZMK_COMBO(right,  &kp RIGHT, 12 13, ALL)
 ZMK_COMBO(left,  &kp LEFT, 11 12, ALL)
 
+ZMK_COMBO(upr,  &kp UP, 16  17  18, ALL)
+ZMK_COMBO(downr,  &kp DOWN, 16 18, ALL)
+ZMK_COMBO(rightr,  &kp RIGHT, 17  18, ALL)
+ZMK_COMBO(leftr,  &kp LEFT, 16  17, ALL)
+
 ZMK_COMBO(scCombo,  &scModMorph, 12 22, ALL)
 ZMK_COMBO(ecommaCombo,  &ecomma, 17 27, ALL)
 
