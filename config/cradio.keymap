@@ -49,10 +49,10 @@ ZMK_COMBO(ue,  &kp DE_U_UMLAUT, 7 17, ALL)
 ZMK_COMBO(oe,  &kp DE_O_UMLAUT, 17 19, ALL)
 
 
-ZMK_COMBO(up,  &kp UP, 11 12 13, ALL,10)
-ZMK_COMBO(down,  &kp DOWN, 11 13, ALL,10)
-ZMK_COMBO(right,  &kp RIGHT, 12 13, ALL,10)
-ZMK_COMBO(left,  &kp LEFT, 11 12, ALL,10)
+ZMK_COMBO(up,  &kp UP, 11 12 13, ALL,15)
+ZMK_COMBO(down,  &kp DOWN, 11 13, ALL,15)
+ZMK_COMBO(right,  &kp RIGHT, 12 13, ALL,15)
+ZMK_COMBO(left,  &kp LEFT, 11 12, ALL,15)
 
 
 ZMK_COMBO(scCombo,  &scModMorph, 12 22, ALL)
