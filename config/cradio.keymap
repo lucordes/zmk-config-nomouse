@@ -134,8 +134,7 @@ ZMK_BEHAVIOR(sc, macro,
     wait-ms = <0>;
     tap-ms = <0>;
     bindings = <&kp S &kp C>;)
-
-afZMK_BEHAVIOR(capitalSlowC, macro,
+ZMK_BEHAVIOR(capitalSlowC, macro,
     wait-ms = <0>;
     tap-ms = <0>;
     bindings = <&kp LS(S) &kp C >;)
