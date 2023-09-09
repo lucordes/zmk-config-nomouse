@@ -135,7 +135,7 @@ ZMK_BEHAVIOR(sc, macro,
     tap-ms = <0>;
     bindings = <&kp S &kp C>;)
 
-ZMK_BEHAVIOR(capitalSlowC, macro,
+afZMK_BEHAVIOR(capitalSlowC, macro,
     wait-ms = <0>;
     tap-ms = <0>;
     bindings = <&kp LS(S) &kp C >;)
@@ -151,6 +151,10 @@ ZMK_BEHAVIOR(paren, macro,
     wait-ms = <0>;
     tap-ms = <0>;
     bindings = <&kp DE_LEFT_PARENTHESIS &kp DE_RIGHT_PARENTHESIS &kp LEFT >;)
+ZMK_BEHAVIOR(lessgreater, macro,
+    wait-ms = <0>;
+    tap-ms = <0>;
+    bindings = <&kp DE_LESS_THAN &kp DE_GREATER_THAN &kp LEFT >;)
 
 ZMK_BEHAVIOR(german, macro,
     wait-ms = <10>;
@@ -240,7 +244,7 @@ ZMK_BEHAVIOR(scModMorph, mod_morph,
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                &kp F11       &kp F12   &kp DE_HASH &kp DE_LESS_THAN &kp DE_CARET &bracket      &brace         &paren     &kp RA(MINUS)     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1    &hm F2 N2    &hm F3 N3      &hm F4 N4        ___               ___      &hm F7 N7    &hm F8 N8    &hm F9 N9     &hm F10 N0
+               &hm F1 N1    &hm F2 N2    &hm F3 N3      &hm F4 N4        ___             &lessgreater &hm F7 N7     &hm F8 N8    &hm F9 N9     &hm F10 N0
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                  ___           ___           ___        &kp DE_PLUS  &kp DE_QMARK      &kp DE_ACUTE &kp DE_MINUS       ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
