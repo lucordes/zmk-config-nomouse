@@ -76,7 +76,7 @@ ZMK_BEHAVIOR(hmhold, hold_tap,
     tapping-term-ms = <280>;
     quick-tap-ms = <125>;
     global-quick-tap;
-    bindings = <&kp>, <&kp>;
+    bindings = <&mo>, <&kp>;
 )
 
 
@@ -168,7 +168,7 @@ ZMK_BEHAVIOR(germanStyeComma, mod_morph,
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           &lt NUMPAD DE_Z   &hm LALT X      &kp C      &hm LCTRL D   &hm LA(F4) V        &kp K       &hm RALT H    &kp COMMA     &kp DOT       &kp BSPC
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                       &lt NAV TAB   &kp LSHFT          &lt SYM SPC   &lt SYM SPC
+                                                       &hmhold NAV TAB   &kp LSHFT          &lt SYM SPC   &lt SYM SPC
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
       >;
     };
