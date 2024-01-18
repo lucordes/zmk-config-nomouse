@@ -42,6 +42,7 @@ ZMK_COMBO(f23,  &kp F23, 10 20, ALL)
 ZMK_COMBO(f24,  &kp F24, 19 29, ALL)
 
 ZMK_COMBO(quote,&kp DE_DQT, 8 18, BASE)
+ZMK_COMBO(apostroph,  &kp DE_APOS, 0 10, BASE)
 
 
 ZMK_COMBO(quoteus,&kp DQT, 8 18, BASEUS)
@@ -160,7 +161,7 @@ ZMK_BEHAVIOR(germanStyeComma, mod_morph,
     base_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                 &kp Q      &hm ESC W    &hm LSHIFT F    &kp P         &kp B             &kp J          &kp L        &kp U       &hm ESC DE_Y  &kp DE_APOS
+                 &kp Q      &hm ESC W    &hm LSHIFT F    &kp P         &kp B             &kp J          &kp L        &kp U       &hm ESC DE_Y  &kp LC(BSPC)
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             &hm LCTRL A     &hm LGUI R    &hm RET S    &hm LALT T    &hm DE_SZ G         &kp M       &hm RSHFT N   &hm LALT E    &hm LGUI I    &hm RCTRL O
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
