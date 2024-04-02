@@ -8,10 +8,9 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
-
-#include <dt-bindings/zmk/ext_power.h>
 #include "keys_de.h"
-#include "../zmk-nodefree-config/helper.h"
+#include <dt-bindings/zmk/ext_power.h>
+//#include "../zmk-nodefree-config/helper.h"
 
 
 
@@ -21,12 +20,15 @@
 
 #define BASE 0
 #define BASEUS 1
-#define NAV 2
-#define SYM 3
-#define SYMUS 4
+#define SYM 2
+#define SYMUS 3
+#define NAV 4
 #define NUMPAD 5
 #define ADJ 6
 
+
+
+/ {
 
         /*                KEY POSITIONS
   ╭────────────────────╮ ╭────────────────────╮
@@ -36,99 +38,149 @@
   ╰───────────╮ 30  31 │ │ 32  33 ╭───────────╯
               ╰────────╯ ╰────────╯            */
 
+//ZMK_COMBO(pwr,  &kp C_POWER, 0 4, ALL)
+    combos {
+        compatible = "zmk,combos";
+        combo_pwr {
+            timeout-ms = <50>;
+            key-positions = <0 4>;
+            bindings = <&kp C_POWER>;
+        };
 
-ZMK_COMBO(pwr,  &kp C_POWER, 0 4, ALL)
-ZMK_COMBO(f23,  &kp F23, 10 20, ALL)
-ZMK_COMBO(f24,  &kp F24, 19 29, ALL)
+            combo_five {
+            timeout-ms = <50>;  // You may adjust this value based on your requirements
+            key-positions = <3 13>;
+            bindings = <&kp N5>;
+        };
+            combo_six {
+            timeout-ms = <50>;  // You may adjust this value based on your requirements
+            key-positions = <6 16>;
+            bindings = <&kp N6>;
+        };
+            combo_up {
+            timeout-ms = <20>;  // You may adjust this value based on your requirements
+            key-positions = <11 12 13>;
+            bindings = <&kp UP>;
+        };
+            combo_down {
+            timeout-ms = <20>;  // You may adjust this value based on your requirements
+            key-positions = <11 13>;
+            bindings = <&kp DOWN>;
+        };
+            combo_right {
+            timeout-ms = <20>;  // You may adjust this value based on your requirements
+            key-positions = <12 13>;
+            bindings = <&kp RIGHT>;
+        };
+            combo_left {
+            timeout-ms = <20>;  // You may adjust this value based on your requirements
+            key-positions = <11 12>;
+            bindings = <&kp LEFT>;
+        };
+            combo_scCombo {
+            timeout-ms = <50>;  // You may adjust this value based on your requirements
+            key-positions = <12 22>;
+            bindings = <&scModMorph>;
+            layers = <BASE BASEUS>;
+        };
+            combo_ecommaCombo {
+            timeout-ms = <50>;  // You may adjust this value based on your requirements
+            key-positions = <17 27>;
+            bindings = <&ecomma>;
+            layers = <BASE BASEUS>;
+        };
+    };
 
-ZMK_COMBO(quote,&kp DE_DQT, 8 18, BASE)
-ZMK_COMBO(apostroph,  &kp DE_APOS, 0 10, BASE)
-
-
-ZMK_COMBO(quoteus,&kp DQT, 8 18, BASEUS)
-ZMK_COMBO(apostrophus,  &kp APOS, 0 10, BASEUS)
-
-ZMK_COMBO(five,  &kp N5, 3 13, ALL)
-ZMK_COMBO(six,  &kp N6, 6 16, ALL)
 
 
 
-ZMK_COMBO(up,  &kp UP, 11 12 13, ALL,15)
-ZMK_COMBO(down,  &kp DOWN, 11 13, ALL,15)
-ZMK_COMBO(right,  &kp RIGHT, 12 13, ALL,15)
-ZMK_COMBO(left,  &kp LEFT, 11 12, ALL,15)
 
-
-ZMK_COMBO(scCombo,  &scModMorph, 12 22, BASE BASEUS)
-ZMK_COMBO(ecommaCombo,  &ecomma, 17 27, BASE BASEUS)
-
-//home row mods
-ZMK_BEHAVIOR(hm, hold_tap,
-    flavor = "tap-preferred";
-    tapping-term-ms = <280>;
-    quick-tap-ms = <125>;
-    global-quick-tap;
-    bindings = <&kp>, <&kp>;
-)
-ZMK_BEHAVIOR(hmhold, hold_tap,
-    flavor = "hold-preferred";
-    tapping-term-ms = <280>;
-    quick-tap-ms = <125>;
-    global-quick-tap;
-    bindings = <&mo>, <&kp>;
-)
 
 
 //macros
 
-    
-ZMK_BEHAVIOR(ecomma, macro,
-    wait-ms = <0>;
-    tap-ms = <0>;
-    bindings = <&kp E &kp COMMA>;)
-ZMK_BEHAVIOR(sc, macro,
-    wait-ms = <0>;
-    tap-ms = <0>;
-    bindings = <&kp S &kp C>;)
-ZMK_BEHAVIOR(capitalSlowC, macro,
-    wait-ms = <0>;
-    tap-ms = <0>;
-    bindings = <&kp LS(S) &kp C >;)
+macros {
+    ecomma: ecomma {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+        = <&macro_tap &kp E &kp COMMA>
+        ;
+    };
+    sc: sc {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_tap &kp S &kp C>
+            ;
+    };
+    capitalSlowC: capitalSlowC {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+        = <&macro_tap &kp LS(S) &kp C>
+        ;
+    };
+    bracket: bracket {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+        = <&macro_tap &kp DE_LEFT_BRACKET &kp DE_RIGHT_BRACKET &kp LEFT>
+        ;
+    };
+    brace: brace {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+        = <&macro_tap &kp DE_LEFT_BRACE &kp DE_RIGHT_BRACE &kp LEFT>
+        ;
+    };
+    paren: paren {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+        = <&macro_tap &kp DE_LEFT_PARENTHESIS &kp DE_RIGHT_PARENTHESIS &kp LEFT>
+        ;
+    };
+    lessgreater: lessgreater {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+        = <&macro_tap &kp DE_LESS_THAN &kp DE_GREATER_THAN &kp LEFT>
+        ;
+    };
+    bracketus: bracketus {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+        = <&macro_tap &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT>
+        ;
+    };
+    braceus: braceus {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+        = <&macro_tap &kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>
+        ;
+    };
+    parenus: parenus {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+        = <&macro_tap &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT>
+        ;
+    };
+    lessgreaterus: lessgreaterus {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+        = <&macro_tap &kp LT &kp GT &kp LEFT>
+        ;
+    };
 
-ZMK_BEHAVIOR(bracket, macro,
-    wait-ms = <0>;
-    tap-ms = <0>;
-    bindings = <&kp DE_LEFT_BRACKET &kp DE_RIGHT_BRACKET &kp LEFT >;)
-ZMK_BEHAVIOR(brace, macro,
-    wait-ms = <0>;
-    tap-ms = <0>;
-    bindings = <&kp DE_LEFT_BRACE &kp DE_RIGHT_BRACE &kp LEFT >;)
-ZMK_BEHAVIOR(paren, macro,
-    wait-ms = <0>;
-    tap-ms = <0>;
-    bindings = <&kp DE_LEFT_PARENTHESIS &kp DE_RIGHT_PARENTHESIS &kp LEFT >;)
-ZMK_BEHAVIOR(lessgreater, macro,
-    wait-ms = <0>;
-    tap-ms = <0>;
-    bindings = <&kp DE_LESS_THAN &kp DE_GREATER_THAN &kp LEFT >;)
 
 
-ZMK_BEHAVIOR(bracketus, macro,
-    wait-ms = <0>;
-    tap-ms = <0>;
-    bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT >;)
-ZMK_BEHAVIOR(braceus, macro,
-    wait-ms = <0>;
-    tap-ms = <0>;
-    bindings = <&kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT >;)
-ZMK_BEHAVIOR(parenus, macro,
-    wait-ms = <0>;
-    tap-ms = <0>;
-    bindings = <&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT >;)
-ZMK_BEHAVIOR(lessgreaterus, macro,
-    wait-ms = <0>;
-    tap-ms = <0>;
-    bindings = <&kp LT &kp GT &kp LEFT >;)
+};
 
 
 
@@ -136,22 +188,78 @@ ZMK_BEHAVIOR(lessgreaterus, macro,
 
 
 //mod morph
-ZMK_BEHAVIOR(scModMorph, mod_morph,
-    bindings = <&sc>, <&capitalSlowC>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
 
-ZMK_BEHAVIOR(germanStyeDot, mod_morph,
-    bindings = <&kp DOT>, <&kp COLON>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
+    behaviors {
+        //home row mods
 
-ZMK_BEHAVIOR(germanStyeComma, mod_morph,
-    bindings = <&kp DOT>, <&kp SEMICOLON>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
+        hm: hm {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            global-quick-tap;
+            require-prior-idle-ms = <125>;
+            bindings = <&kp>, <&kp>;
+        };
+        hmhold: hmhold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
 
-/ {
+        //mod morph
+        scModMorph: scModMorph{
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&sc>, <&capitalSlowC>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        germanStyleDot: germanStyleDot {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp COLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        germanStyeComma: germanStyeComma {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp SEMICOLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        number3: number3 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm F3 N3>, <&kp DE_SQT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        number4: number4 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm F4 N4>, <&hm DE_EURO DE_DOLLAR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        number8: number8 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm F8 N8>, <&kp DE_HASH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        number9: number9 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm F9 N9>, <&kp DE_QMARK>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+
+
+
+
+
 
 
 
@@ -179,7 +287,7 @@ ZMK_BEHAVIOR(germanStyeComma, mod_morph,
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                  ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-            &lt NUMPAD Z       ___           ___           ___           ___               ___           ___     &germanStyeComma &germanStyeDot   ___
+            &lt NUMPAD Z       ___           ___           ___           ___               ___           ___     &germanStyeComma &germanStyleDot   ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                            ___           ___           &lt SYMUS SPC     ___
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
@@ -187,28 +295,16 @@ ZMK_BEHAVIOR(germanStyeComma, mod_morph,
     };
       
 
-    nav_layer {
-      bindings = <
-        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               &mo ADJ      &kp C_PREV     &kp PG_UP      &kp C_NEXT   &kp K_PLAY_PAUSE    ___           ___           ___           ___           ___
-        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                 ___        &kp HOME      &kp PG_DN      &kp END      &kp C_MUTE       &kp C_BRI_UP &kp DE_A_UMLAUT &kp DE_U_UMLAUT ___ &kp DE_O_UMLAUT
-        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                 ___           ___         &kp DEL     &kp C_VOL_DN  &kp C_VOL_UP      &kp C_BRI_DN      ___           ___           ___           ___
-        // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                           ___           ___               ___           ___
-        //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
-      >;
-    };
+
 
     sym_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-            &kp DE_AT   &kp DE_SLASH  &kp DE_HASH &hm DE_EURO DE_DOLLAR &kp DE_CARET     &bracket      &brace         &paren     &kp RA(MINUS)     ___
+            &kp DE_AT   &kp DE_A_UMLAUT &kp DE_U_UMLAUT &kp DE_PERCENT &kp DE_CARET    &bracket        &brace         &paren     &kp RA(MINUS)     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1    &hm F2 N2    &hm F3 N3      &hm F4 N4    &kp DE_AMPS       &lessgreater &hm F7 N7     &hm F8 N8    &hm F9 N9     &hm F10 N0
+               &hm F1 N1   &hm F2 N2    &number3        &number4    &kp DE_AMPS        &lessgreater   &hm F7 N7      &number8      &number9     &hm F10 N0
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &kp DE_EQUAL  &kp DE_PERCENT &kp DE_QMARK &hm DE_TILDE DE_PLUS  &kp DE_EXCL      &kp DE_ACUTE &hm DE_PIPE DE_MINUS ___           ___           ___
+        &kp DE_O_UMLAUT      ___            ___     &hm DE_TILDE DE_PLUS ___          &kp DE_ACUTE &hm DE_PIPE DE_MINUS ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                            ___           ___               ___          ___
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
@@ -228,6 +324,21 @@ ZMK_BEHAVIOR(germanStyeComma, mod_morph,
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
       >;
     };
+
+    nav_layer {
+      bindings = <
+        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+               &mo ADJ &hm C_PREV C_AC_BACK &kp PG_UP &hm C_NEXT C_AC_FORWARD &kp K_PLAY_PAUSE    ___           ___           ___           ___           ___
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                 ___        &kp HOME      &kp PG_DN      &kp END      &kp C_MUTE       &kp C_BRI_UP      ___           ___           ___           ___
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                 ___           ___         &kp DEL     &kp C_VOL_DN  &kp C_VOL_UP      &kp C_BRI_DN      ___           ___           ___           ___
+        // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                           ___           ___               ___           ___
+        //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
+      >;
+    };
+
 
     base_layer_num {
       bindings = <
