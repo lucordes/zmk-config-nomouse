@@ -190,7 +190,7 @@ macros {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings
-        = <&macro_tap &kp LS(SLASH) &kp SPC>
+        = <&macro_tap &kp APOS &kp SPC>
         ;
     };
         // ö
@@ -198,7 +198,7 @@ macros {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings 
-        = <&macro_tap &kp LS(SLASH) &kp O>
+        = <&macro_tap &kp LS(APOS) &kp O>
         ;
     };
             // ue
@@ -206,7 +206,7 @@ macros {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings 
-        = <&macro_tap &kp LS(SLASH) &kp U>
+        = <&macro_tap &kp LS(APOS) &kp U>
         ;
     };
             // ae
@@ -214,7 +214,7 @@ macros {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings 
-        = <&macro_tap &kp LS(SLASH) &kp A>
+        = <&macro_tap &kp LS(APOS) &kp A> 
         ;
     };
     
@@ -305,7 +305,7 @@ macros {
         number3us: number3us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm F3 N3>, <&kp SQT>;
+            bindings = <&hm F3 N3>, <&kp singleqouteusint>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         number4us: number4us {
@@ -368,7 +368,7 @@ macros {
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                &kp AT       &aeusint     &ueusint     &kp DOLLAR     &kp CARET         &bracketus    &braceus     &parenus     &kp BACKSLASH     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1    &hm F2 N2    &hm F3 N3      &hm F4 N4    &kp AMPS        &lessgreaterus &hm F7 N7     &hm F8 N8    &hm F9 N9     &hm F10 N0
+               &hm F1 N1   &hm F2 N2    &number3us        &number4us &kp DE_AMPS   &lessgreaterus   &hm F7 N7    &hm F8 N8    &hm F8 N8     &hm F10 N0
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              &oeusint         ___            ___     &timesusint      &kp EXCL       &kp GRAVE  &hm PIPE MINUS     ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
