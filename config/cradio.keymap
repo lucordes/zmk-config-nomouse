@@ -305,7 +305,7 @@ macros {
         number3us: number3us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm F3 N3>, <&kp singleqouteusint>;
+            bindings = <&hm F3 N3>, <&singleqouteusint>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         number4us: number4us {
