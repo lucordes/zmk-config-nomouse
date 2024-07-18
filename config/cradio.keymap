@@ -271,51 +271,51 @@ macros {
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-
-        number3de : number3de {
+        number3de: number3de {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F3 N3>, <&kp DE_SQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        number4de : number4de {
+
+        number4de: number4de {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F4 N4>, <&hm DE_EURO DE_DOLLAR>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        number8de : number8de {
+        number8de: number8de {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F8 N8>, <&kp DE_HASH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        number9de : number9de {
+        number9de: number9de {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F9 N9>, <&kp DE_QMARK>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        number2us : number2us {
+        number2us: number2us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F2 N2>, <&kp >;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        number3us : number3us {
+        number3us: number3us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F3 N3>, <&kp SQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        number4us : number4us {
+        number4us: number4us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F4 N4>, <&kp SQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        timesusint : timesusint {
+        timesusint: timesusint {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm TILDE PLUS>, <&kp LS(N8)>;
