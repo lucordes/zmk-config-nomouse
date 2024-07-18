@@ -299,7 +299,7 @@ macros {
         number2us: number2us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm F2 N2>, <&kp >;
+            bindings = <&hm F2 N2>, <&qouteusint >;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         number3us: number3us {
