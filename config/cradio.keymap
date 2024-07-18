@@ -371,9 +371,7 @@ macros {
             #binding-cells = <0>;
             bindings = <&caretus>, <&kp LS(RA(N0))>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        caretusmodmorph
-       
+        };       
     };
 
 
