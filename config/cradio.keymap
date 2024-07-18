@@ -18,10 +18,10 @@
 #define XXX &none
 #define ___ &trans
 
-#define BASE 0
-#define BASEUS 1
-#define SYM 2
-#define SYMUS 3
+#define BASEUSINT 0
+#define BASEDE 1
+#define SYMUSINT 2
+#define SYMDE 3
 #define NAV 4
 #define NUMPAD 5
 #define ADJ 6
@@ -121,28 +121,28 @@ macros {
         = <&macro_tap &kp LS(S) &kp C>
         ;
     };
-    bracket: bracket {
+    bracketde: bracketde {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings
         = <&macro_tap &kp DE_LEFT_BRACKET &kp DE_RIGHT_BRACKET &kp LEFT>
         ;
     };
-    brace: brace {
+    bracede: bracede {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings
         = <&macro_tap &kp DE_LEFT_BRACE &kp DE_RIGHT_BRACE &kp LEFT>
         ;
     };
-    paren: paren {
+    parende: parende {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings
         = <&macro_tap &kp DE_LEFT_PARENTHESIS &kp DE_RIGHT_PARENTHESIS &kp LEFT>
         ;
     };
-    lessgreater: lessgreater {
+    lessgreaterde: lessgreaterde {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings
@@ -177,6 +177,47 @@ macros {
         = <&macro_tap &kp LT &kp GT &kp LEFT>
         ;
     };
+    // "
+    qouteusint: qouteusint {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+        = <&macro_tap &kp LS(SLASH) &kp SPC>
+        ;
+    };
+    // '
+    singleqouteusint: singleqouteusint {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+        = <&macro_tap &kp LS(SLASH) &kp SPC>
+        ;
+    };
+        // ö
+    oeusint: oeusint {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings 
+        = <&macro_tap &kp LS(SLASH) &kp O>
+        ;
+    };
+            // ö
+    ueusint: ueusint {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings 
+        = <&macro_tap &kp LS(SLASH) &kp U>
+        ;
+    };
+            // ae
+    aeusint: aeusint {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings 
+        = <&macro_tap &kp LS(SLASH) &kp A>
+        ;
+    };
+    
 
 
 
@@ -230,30 +271,26 @@ macros {
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        number3: number3 {
+        number2us: number2us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm F3 N3>, <&kp DE_SQT>;
+            bindings = <&hm F2 N2>, <&kp >;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        number4: number4 {
+        number3us: number3us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm F4 N4>, <&hm DE_EURO DE_DOLLAR>;
+            bindings = <&hm F3 N3>, <&kp SQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        number8: number8 {
+
+        timesusint: timesusint {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm F8 N8>, <&kp DE_HASH>;
+            bindings = <&hm TILDE PLUS>, <&kp LS(N8)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        number9: number9 {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&hm F9 N9>, <&kp DE_QMARK>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+       
     };
 
 
@@ -266,43 +303,55 @@ macros {
   keymap {
     compatible = "zmk,keymap";
 
-    base_layer {
+    baseusint_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                 &kp Q      &hm ESC W    &hm LSHIFT F    &kp P         &kp B             &kp J          &kp L        &kp U       &hm ESC DE_Y  &kp LC(BSPC)
+                 &kp Q      &hm ESC W    &hm LSHIFT F    &kp P         &kp B             &kp J          &kp L        &kp U       &hm ESC Y  &kp LC(BSPC)
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-            &hm LCTRL A     &hm LGUI R    &hm RET S    &hm LALT T    &hm DE_SZ G         &kp M       &hm RSHFT N   &hm LALT E    &hm LGUI I    &hm RCTRL O
+            &hm LCTRL A     &hm LGUI R    &hm RET S    &hm LALT T      &kp G         &kp M       &hm RSHFT N   &hm LALT E    &hm LGUI I    &hm RCTRL O
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-          &lt NUMPAD DE_Z   &hm LALT X      &kp C      &hm LCTRL D   &hm LA(F4) V        &kp K       &hm RALT H    &kp COMMA     &kp DOT       &kp BSPC
+          &lt NUMPAD Z   &hm LALT X      &kp C      &hm LCTRL D   &hm LA(F4) V        &kp K       &hm RALT H    &germanStyeComma &germanStyleDot &kp BSPC
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                       &hmhold NAV TAB   &kp LSHFT          &lt SYM SPC   &kp LC(BSPC)
+                                                       &hmhold NAV TAB   &kp LSHFT    &lt SYMUSINT SPC &kp LC(BSPC)
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
       >;
     };
 
-    baseus_layer {
+    basede_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                 ___           ___           ___           ___           ___               ___           ___           ___       &hm ESC Y     &kp APOS
+                 ___           ___           ___           ___           ___               ___           ___           ___       &hm ESC DE_Y      ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                  ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-            &lt NUMPAD Z       ___           ___           ___           ___               ___           ___     &germanStyeComma &germanStyleDot   ___
+            &lt NUMPAD DE_Z    ___           ___           ___           ___               ___           ___        &kp COMMA       &kp DOT        ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                           ___           ___           &lt SYMUS SPC     ___
+                                                           ___           ___           &lt SYMDE SPC     ___
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
       >;
     };
       
 
-
-
-    sym_layer {
+      symusint_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-            &kp DE_AT   &kp DE_A_UMLAUT &kp DE_U_UMLAUT &kp DE_PERCENT &kp DE_CARET    &bracket        &brace         &paren     &kp RA(MINUS)     ___
+               &kp AT       &kp SLASH     &kp HASH     &kp DOLLAR     &kp CARET         &bracketus    &braceus     &parenus     &kp BACKSLASH     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1   &hm F2 N2    &number3        &number4    &kp DE_AMPS        &lessgreater   &hm F7 N7      &number8      &number9     &hm F10 N0
+               &hm F1 N1    &hm F2 N2    &hm F3 N3      &hm F4 N4    &kp AMPS        &lessgreaterus &hm F7 N7     &hm F8 N8    &hm F9 N9     &hm F10 N0
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+             &kp EQUAL         ___            ___     &timesusint      &kp EXCL       &kp GRAVE  &hm PIPE MINUS     ___           ___           ___
+        // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                           ___           ___               ___          ___
+        //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
+      >;
+    };
+
+    symde_layer {
+      bindings = <
+        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            &kp DE_AT   &kp DE_A_UMLAUT &kp DE_U_UMLAUT &kp DE_PERCENT &kp DE_CARET    &bracketde     &bracede       &parende     &kp RA(MINUS)     ___
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               &hm F1 N1   &hm F2 N2    &number3de        &number4de    &kp DE_AMPS   &lessgreaterde   &hm F7 N7    &number8de    &number9de     &hm F10 N0
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &kp DE_O_UMLAUT      ___            ___     &hm DE_TILDE DE_PLUS ___          &kp DE_ACUTE &hm DE_PIPE DE_MINUS ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
@@ -311,19 +360,7 @@ macros {
       >;
     };
 
-      symus_layer {
-      bindings = <
-        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               &kp AT       &kp SLASH     &kp HASH     &kp DOLLAR     &kp CARET         &bracketus    &braceus     &parenus     &kp BACKSLASH     ___
-        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1    &hm F2 N2    &hm F3 N3      &hm F4 N4    &kp AMPS        &lessgreaterus &hm F7 N7     &hm F8 N8    &hm F9 N9     &hm F10 N0
-        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &kp EQUAL     &kp PERCENT    &kp QMARK     &hm TILDE PLUS      &kp EXCL           &kp GRAVE  &hm PIPE MINUS     ___           ___           ___
-        // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                           ___           ___               ___          ___
-        //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
-      >;
-    };
+
 
     nav_layer {
       bindings = <
@@ -361,7 +398,7 @@ macros {
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                 &kp CAPS  &bt BT_SEL 3   &bt BT_SEL 4     XXX        &bt BT_CLR           XXX           &kp LEFT    &kp SPC           &kp RIGHT           XXX
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-            &sys_reset     &bootloader   &tog BASEUS       XXX           XXX               XXX           XXX           XXX       XXX    XXX
+            &sys_reset     &bootloader   &tog BASEDE       XXX           XXX               XXX           XXX           XXX       XXX    XXX
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                            XXX           XXX               XXX           XXX
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
