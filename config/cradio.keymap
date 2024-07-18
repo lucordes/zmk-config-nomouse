@@ -224,6 +224,14 @@ macros {
         = <&macro_tap &kp LS(APOS) &kp A> 
         ;
     };
+    // caret us ^
+        caretus: caretus {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings 
+        = <&macro_tap &kp CARET &kp SPC> 
+        ;
+    };
     
 
 
@@ -274,7 +282,7 @@ macros {
         germanStyeComma: germanStyeComma {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp SEMICOLON>;
+            bindings = <&kp COMMA>, <&kp SEMICOLON>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -358,6 +366,13 @@ macros {
             bindings = <&hm TILDE PLUS>, <&kp LS(N8)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        caretusmodmorph: caretusmodmorph { // ^ °
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&caretus>, <&kp LS(RA(N0))>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        caretusmodmorph
        
     };
 
