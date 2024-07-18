@@ -182,7 +182,7 @@ macros {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings
-        = <&macro_tap &kp LS(SLASH) &kp SPC>
+        = <&macro_tap &kp LS(APOS) &kp SPC>
         ;
     };
     // '
@@ -311,7 +311,37 @@ macros {
         number4us: number4us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm F4 N4>, <&kp SQT>;
+            bindings = <&hm F4 N4>, <&kp DOLLAR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        number6us: number6us {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm F6 N6>, <&kp LS(N7)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        number7us: number7us {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm F7 N7>, <&kp SLASH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        number8us: number8us {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm F8 N8>, <&kp LS(N3)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        number9us: number9us {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm F9 N9>, <&kp QMARK>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        number0us: number0us {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm F10 N0>, <&kp EQUAL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -368,9 +398,9 @@ macros {
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                &kp AT       &aeusint     &ueusint     &kp DOLLAR     &kp CARET         &bracketus    &braceus     &parenus     &kp BACKSLASH     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1   &hm F2 N2    &number3us        &number4us &kp DE_AMPS   &lessgreaterus   &hm F7 N7    &hm F8 N8    &hm F8 N8     &hm F10 N0
+               &hm F1 N1   &hm F2 N2    &number3us     &number4us &kp DE_AMPS      &lessgreaterus   &number7us    &number8us   &number9us     &number0us
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &oeusint         ___            ___     &timesusint      &kp EXCL       &kp GRAVE  &hm PIPE MINUS     ___           ___           ___
+             &oeusint         ___            ___     &timesusint         ___       &kp GRAVE  &hm PIPE MINUS     ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                            ___           ___               ___          ___
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
