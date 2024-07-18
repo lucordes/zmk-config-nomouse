@@ -81,13 +81,13 @@
             timeout-ms = <50>;  // You may adjust this value based on your requirements
             key-positions = <12 22>;
             bindings = <&scModMorph>;
-            layers = <BASE BASEUS>;
+            layers = <BASEDE BASEUSINT>;
         };
             combo_ecommaCombo {
             timeout-ms = <50>;  // You may adjust this value based on your requirements
             key-positions = <17 27>;
             bindings = <&ecomma>;
-            layers = <BASE BASEUS>;
+            layers = <BASEDE BASEUSINT>;
         };
     };
 
