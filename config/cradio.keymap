@@ -52,10 +52,17 @@
             key-positions = <3 13>;
             bindings = <&kp N5>;
         };
-            combo_six {
+            combo_sixde {
             timeout-ms = <50>;  // You may adjust this value based on your requirements
             key-positions = <6 16>;
             bindings = <&kp N6>;
+            layers = <BASEDE>;
+        };
+        combo_sixus {
+            timeout-ms = <50>;  // You may adjust this value based on your requirements
+            key-positions = <6 16>;
+            bindings = <&number6us>;
+            layers = <BASEUSINT>;
         };
             combo_up {
             timeout-ms = <20>;  // You may adjust this value based on your requirements
@@ -398,7 +405,7 @@ macros {
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                &kp AT       &aeusint     &ueusint     &kp DOLLAR     &kp CARET         &bracketus    &braceus     &parenus     &kp BACKSLASH     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1   &hm F2 N2    &number3us     &number4us &kp DE_AMPS      &lessgreaterus   &number7us    &number8us   &number9us     &number0us
+               &hm F1 N1   &number2us    &number3us     &number4us   &kp RA(S)      &lessgreaterus   &number7us    &number8us   &number9us     &number0us
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              &oeusint         ___            ___     &timesusint         ___       &kp GRAVE  &hm PIPE MINUS     ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
