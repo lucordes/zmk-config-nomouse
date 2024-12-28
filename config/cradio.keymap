@@ -19,11 +19,12 @@
 
 #define BASEUSINT 0
 #define BASEDE 1
-#define SYMUSINT 2
-#define SYMDE 3
-#define NAV 4
-#define NUMPAD 5
-#define ADJ 6
+#define ANDROID 2
+#define SYMUSINT 3
+#define SYMDE 4
+#define NAV 5
+#define NUMPAD 6
+#define ADJ 7
 
 
 
@@ -261,7 +262,26 @@ macros {
         = <&macro_tap &kp GRAVE &kp SPC> 
         ;
     };
-    
+    // android quit
+    androidquit: androidquit {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings 
+        = <&macro_press &kp F15>
+        ,<&macro_tap &kp F4>
+        ,<&macro_release &kp F15> 
+        ;
+    };
+    // android ctlbackspace
+    androidctlbackspace: androidctlbackspace {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings 
+        = <&macro_press &kp F13>
+        ,<&macro_tap &kp BSPC>
+        ,<&macro_release &kp F13> 
+        ;
+    };
 
 
 
@@ -440,6 +460,20 @@ macros {
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
       >;
     };
+        
+    android_layer {
+      bindings = <
+        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+                 ___           ___           ___           ___           ___               ___           ___           ___           ___      &kp androidctlbackspace 
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+             &hm F13 ___   &hm F14 ___       ___        &hm F15 ___      ___               ___           ___        &hm F15 ___   &hm F14 ___    &hm F13 ___
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                 ___       &hm F15 ___        ___       &hm F13 ___  &hm androidquit V     ___        &hm F16 ___           ___           ___        ___
+        // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                           ___           ___               ___     ___
+        //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
+      >;
+    };
       
 
       symusint_layer {
@@ -508,7 +542,7 @@ macros {
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                 &kp CAPS  &bt BT_SEL 3   &bt BT_SEL 4     XXX        &bt BT_CLR           XXX           &kp LEFT    &kp SPC           &kp RIGHT           XXX
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-            &sys_reset     &bootloader   &tog BASEDE       XXX           XXX               XXX           XXX           XXX       XXX    XXX
+            &sys_reset     &bootloader   &tog BASEDE    &tog ANDROID     XXX               XXX           XXX           XXX       XXX    XXX
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                            XXX           XXX               XXX           XXX
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
