@@ -435,6 +435,27 @@ macros {
             tapping-term-ms = <200>;
             bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>, <&braceus>;
         };
+td_parenus: td_parenus {
+    compatible = "zmk,behavior-tap-dance";
+    #binding-cells = <0>;
+    tapping-term-ms = <200>;
+    bindings = <&kp LEFT_RIGHT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>, <&parenus>;
+};
+
+td_bracketus: td_bracketus {
+    compatible = "zmk,behavior-tap-dance";
+    #binding-cells = <0>;
+    tapping-term-ms = <200>;
+    bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>, <&bracketus>;
+};
+
+td_lessgreaterus: td_lessgreaterus {
+    compatible = "zmk,behavior-tap-dance";
+    #binding-cells = <0>;
+    tapping-term-ms = <200>;
+    bindings = <&kp LT>, <&kp GT>, <&lessgreaterus>;
+};
+
     };
 
 
@@ -493,9 +514,9 @@ macros {
       symusint_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               &kp AT       &aeusint     &ueusint          ___      &kp CARET         &bracketus    &td_braceus     &parenus     &kp BACKSLASH     ___
+               &kp AT       &aeusint     &ueusint          ___      &kp CARET         &td_bracketus    &td_braceus     &td_parenus     &kp BACKSLASH     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1   &number2us    &number3us     &number4us   &kp RA(S)      &lessgreaterus   &number7us    &number8us   &number9us     &number0us
+               &hm F1 N1   &number2us    &number3us     &number4us   &kp RA(S)      &td_lessgreaterus   &number7us    &number8us   &number9us     &number0us
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
              &oeusint         ___            ___     &timesusint         ___       &gravespace  &hm PIPE MINUS     ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
