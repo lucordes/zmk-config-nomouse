@@ -435,26 +435,24 @@ macros {
             tapping-term-ms = <200>;
             bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>, <&braceus>;
         };
-td_parenus: td_parenus {
-    compatible = "zmk,behavior-tap-dance";
-    #binding-cells = <0>;
-    tapping-term-ms = <200>;
-    bindings = <&kp LEFT_RIGHT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>, <&parenus>;
-};
-
-td_bracketus: td_bracketus {
-    compatible = "zmk,behavior-tap-dance";
-    #binding-cells = <0>;
-    tapping-term-ms = <200>;
-    bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>, <&bracketus>;
-};
-
-td_lessgreaterus: td_lessgreaterus {
-    compatible = "zmk,behavior-tap-dance";
-    #binding-cells = <0>;
-    tapping-term-ms = <200>;
-    bindings = <&kp LT>, <&kp GT>, <&lessgreaterus>;
-};
+        td_parenus: td_parenus {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LEFT_RIGHT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>, <&parenus>;
+        };
+        td_bracketus: td_bracketus {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>, <&bracketus>;
+        };
+        td_lessgreaterus: td_lessgreaterus {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LT>, <&kp GT>, <&lessgreaterus>;
+        };
 
     };
 
