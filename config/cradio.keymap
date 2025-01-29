@@ -428,7 +428,13 @@ macros {
             #binding-cells = <0>;
             bindings = <&caretus>, <&kp LS(RA(N0))>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-        };       
+        };
+        td_braceus: td_braceus {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>, <&braceus>;
+        };
     };
 
 
@@ -487,7 +493,7 @@ macros {
       symusint_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               &kp AT       &aeusint     &ueusint          ___      &kp CARET         &bracketus    &braceus     &parenus     &kp BACKSLASH     ___
+               &kp AT       &aeusint     &ueusint          ___      &kp CARET         &bracketus    &tdbraceus     &parenus     &kp BACKSLASH     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &hm F1 N1   &number2us    &number3us     &number4us   &kp RA(S)      &lessgreaterus   &number7us    &number8us   &number9us     &number0us
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
