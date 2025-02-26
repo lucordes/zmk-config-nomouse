@@ -56,12 +56,6 @@
 //ZMK_COMBO(pwr,  &kp C_POWER, 0 4, ALL)
     combos {
         compatible = "zmk,combos";
-        combo_pwr {
-            timeout-ms = <50>;
-            key-positions = <0 4>;
-            bindings = <&kp C_POWER>;
-        };
-
             combo_five {
             timeout-ms = <50>;  // You may adjust this value based on your requirements
             key-positions = <3 13>;
@@ -563,9 +557,9 @@ macros {
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                &mo ADJ &hm C_PREV C_AC_BACK &kp PG_UP &hm C_NEXT C_AC_FORWARD &kp K_PLAY_PAUSE ___   &mkp LCLK    &mmv MOVE_UP    &mkp RCLK        ___           
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                 ___        &kp HOME      &kp PG_DN      &kp END      &kp C_MUTE       &kp C_BRI_UP &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT  ___
+                 ___        &kp HOME      &kp PG_DN      &kp END      &kp C_MUTE       &kp C_BRI_UP &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                 ___           ___         &kp DEL     &kp C_VOL_DN  &kp C_VOL_UP      &kp C_BRI_DN  &msc SCRL_UP      ___      &msc SCRL_DOWN           ___
+                 ___           ___         &kp DEL     &kp C_VOL_DN  &kp C_VOL_UP      &kp C_BRI_DN  &msc SCRL_UP      ___      &msc SCRL_DOWN     ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                            ___           ___               ___           ___
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
@@ -576,7 +570,7 @@ macros {
     base_layer_num {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               &kp F12      &hm F7 N7     &hm F8 N8    &hm F9 N9         ___               &tog ADJ           ___           ___           ___           ___
+               &kp F12      &hm F7 N7     &hm F8 N8    &hm F9 N9     &kp C_POWER          &tog ADJ       ___           ___           ___           ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &kp F11      &hm F4 N4     &hm F5 N5    &hm F6 N6     &hm F10 N0            ___           ___           ___           ___           ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -590,11 +584,11 @@ macros {
     adjust_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-             XXX           &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2   &out OUT_TOG           XXX           XXX           XXX           XXX           XXX
+                 XXX       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2   &out OUT_TOG           XXX           XXX           XXX           XXX           XXX
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                &kp CAPS  &bt BT_SEL 3   &bt BT_SEL 4     XXX        &bt BT_CLR           XXX           &kp LEFT    &kp SPC           &kp RIGHT           XXX
+              &kp CAPS     &bt BT_SEL 3 &bt BT_SEL 4       XXX        &bt BT_CLR           XXX           XXX           XXX           XXX           XXX
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-            &sys_reset     &bootloader   &tog BASEDE    &tog ANDROID  &tog BASEUS     &tog BASEIT        XXX           XXX       XXX    XXX
+            &sys_reset     &bootloader   &tog BASEDE    &tog ANDROID  &tog BASEUS     &tog BASEIT        XXX           XXX           XXX           XXX
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                            XXX           XXX               XXX           XXX
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
