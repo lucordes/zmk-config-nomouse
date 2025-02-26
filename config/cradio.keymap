@@ -19,8 +19,7 @@
 #include "keys_it.h"
 #include "keys_us_international.h"
 #include <dt-bindings/zmk/ext_power.h>
-//#include <dt-bindings/zmk/pointing.h>
-//#include "../zmk-nodefree-config/helper.h"
+
 
 
 
@@ -41,7 +40,7 @@
 #define NUMPAD 10
 #define ADJ 11
 
-
+#define arrowcombotime 10
 
 / {
 
@@ -57,60 +56,60 @@
     combos {
         compatible = "zmk,combos";
             combo_five {
-            timeout-ms = <50>;  // You may adjust this value based on your requirements
+            timeout-ms = <50>;
             key-positions = <3 13>;
             bindings = <&kp N5>;
         };
             combo_sixde {
-            timeout-ms = <50>;  // You may adjust this value based on your requirements
+            timeout-ms = <50>;
             key-positions = <6 16>;
             bindings = <&kp N6>;
             layers = <BASEDE SYMDE>;
         };
             combo_sixus {
-            timeout-ms = <50>;  // You may adjust this value based on your requirements
+            timeout-ms = <50>;
             key-positions = <6 16>;
             bindings = <&number6us>;
             layers = <BASEUSINT SYMUSINT>;
         };
             combo_up {
-            timeout-ms = <20>;  // You may adjust this value based on your requirements
+            timeout-ms = <arrowcombotime>;
             key-positions = <11 12 13>;
             bindings = <&kp UP>;
         };
             combo_down {
-            timeout-ms = <20>;  // You may adjust this value based on your requirements
+            timeout-ms = <arrowcombotime>;
             key-positions = <11 13>;
             bindings = <&kp DOWN>;
         };
             combo_right {
-            timeout-ms = <20>;  // You may adjust this value based on your requirements
+            timeout-ms = <arrowcombotime>;
             key-positions = <12 13>;
             bindings = <&kp RIGHT>;
         };
             combo_left {
-            timeout-ms = <20>;  // You may adjust this value based on your requirements
+            timeout-ms = <arrowcombotime>;
             key-positions = <11 12>;
             bindings = <&kp LEFT>;
         };
 
         combo_uprhand {
-            timeout-ms = <20>;  // You may adjust this value based on your requirements
+            timeout-ms = <arrowcombotime>;
             key-positions = <16 17 18>;
             bindings = <&kp UP>;
         };
             combo_downrhand {
-            timeout-ms = <20>;  // You may adjust this value based on your requirements
+            timeout-ms = <arrowcombotime>;
             key-positions = <16 18>;
             bindings = <&kp DOWN>;
         };
             combo_rightrhand {
-            timeout-ms = <20>;  // You may adjust this value based on your requirements
+            timeout-ms = <arrowcombotime>;
             key-positions = <17 18>;
             bindings = <&kp RIGHT>;
         };
             combo_leftrhand {
-            timeout-ms = <20>;  // You may adjust this value based on your requirements
+            timeout-ms = <arrowcombotime>;
             key-positions = <16 17>;
             bindings = <&kp LEFT>;
         };
