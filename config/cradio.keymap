@@ -121,18 +121,6 @@
             bindings = <&kp LEFT>;
         };
 
-            combo_scCombo {
-            timeout-ms = <50>;  // You may adjust this value based on your requirements
-            key-positions = <12 22>;
-            bindings = <&scModMorph>;
-            layers = <BASEDE BASEUSINT>;
-        };
-            combo_ecommaCombo {
-            timeout-ms = <50>;  // You may adjust this value based on your requirements
-            key-positions = <17 27>;
-            bindings = <&ecomma>;
-            layers = <BASEDE BASEUSINT>;
-        };
     };
 
 
