@@ -144,27 +144,7 @@
 //macros
 
 macros {
-    ecomma: ecomma {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings
-        = <&macro_tap &kp E &kp COMMA>
-        ;
-    };
-    sc: sc {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <&macro_tap &kp S &kp C>
-            ;
-    };
-    capitalSlowC: capitalSlowC {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings
-        = <&macro_tap &kp LS(S) &kp C>
-        ;
-    };
+
     bracketde: bracketde {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
@@ -235,84 +215,6 @@ macros {
         = <&macro_tap &kp LT &kp GT &kp LEFT>
         ;
     };
-    // "
-    qouteusint: qouteusint {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings
-        = <&macro_tap &kp LS(SQT) &kp SPC>
-        ;
-    };
-    // '
-    singleqouteusint: singleqouteusint {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings
-        = <&macro_tap &kp SQT &kp SPC>
-        ;
-    };
-        // ö
-    oeusint: oeusint {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings 
-        = <&macro_tap &kp LS(SQT) &kp O>
-        ;
-    };
-            // ue
-    ueusint: ueusint {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings 
-        = <&macro_tap &kp LS(SQT) &kp U>
-        ;
-    };
-            // ae
-    aeusint: aeusint {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings 
-        = <&macro_tap &kp LS(SQT) &kp A> 
-        ;
-    };
-    // caret us ^
-        caretus: caretus {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings 
-        = <&macro_tap &kp CARET &kp SPC> 
-        ;
-    };
-        // grave space`
-    gravespace: gravespace {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings 
-        = <&macro_tap &kp GRAVE &kp SPC> 
-        ;
-    };
-    // android quit
-    androidquit: androidquit {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings 
-        = <&macro_press &kp F15>
-        ,<&macro_tap &kp F4>
-        ,<&macro_release &kp F15> 
-        ;
-    };
-    // android ctlbackspace
-    androidctlbackspace: androidctlbackspace {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings 
-        = <&macro_press &kp F13>
-        ,<&macro_tap &kp BSPC>
-        ,<&macro_release &kp F13> 
-        ;
-    };
-
-
 
 };
 
@@ -345,12 +247,7 @@ macros {
         };
 
         //mod morph
-        scModMorph: scModMorph{
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&sc>, <&capitalSlowC>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+      
         germanStyleDot: germanStyleDot {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -392,7 +289,7 @@ macros {
         number2us: number2us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm F2 N2>, <&qouteusint >;
+            bindings = <&hm F2 N2>, <&kp EN_DQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         number2usbase: number2usbase{
@@ -404,7 +301,7 @@ macros {
         number3us: number3us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm F3 N3>, <&singleqouteusint>;
+            bindings = <&hm F3 N3>, <&kp EN_SQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         number3it: number3it {
@@ -422,13 +319,13 @@ macros {
         number4us: number4us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm F4 N4>, <&hm RA(N5) DOLLAR>;
+            bindings = <&hm F4 N4>, <&hm EN_EURO DOLLAR>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         number6us: number6us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm F6 N6>, <&kp LS(N7)>;
+            bindings = <&hm F6 N6>, <&kp AMPS>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         number7us: number7us {
@@ -440,7 +337,7 @@ macros {
         number8us: number8us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm F8 N8>, <&kp LS(N3)>;
+            bindings = <&hm F8 N8>, <&kp HASH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         number8it: number8it {
@@ -465,13 +362,7 @@ macros {
         timesusint: timesusint {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm TILDE PLUS>, <&kp LS(N8)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        caretusmodmorph: caretusmodmorph { // ^ °
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&caretus>, <&kp LS(RA(N0))>;
+            bindings = <&hm TILDE PLUS>, <&kp STAR>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         td_braceus: td_braceus {
@@ -610,7 +501,7 @@ macros {
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                  ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                 ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
+                 ___           ___           ___           ___           ___               ___           ___        &kp COMMA       &kp DOT        ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                            ___           ___           &lt SYMIT SPC     ___
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
@@ -621,9 +512,9 @@ macros {
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                &kp AT    &kp EN_A_UMLAUT &kp EN_U_UMLAUT    ___      &kp CARET         &td_bracketus    &td_braceus     &td_parenus     &kp BACKSLASH     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1   &number2us    &number3us     &number4us   &kp RA(S)      &td_lessgreaterus   &number7us    &number8us   &number9us     &number0us
+               &hm F1 N1   &number2us    &number3us     &number4us   &kp EN_SHARP_S &td_lessgreaterus   &number7us    &number8us   &number9us     &number0us
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-            &kp EN_O_UMLAUT    ___            ___     &timesusint         ___       &gravespace  &hm PIPE MINUS     ___           ___           ___
+            &kp EN_O_UMLAUT    ___            ___     &timesusint         ___       &kp GRAVE  &hm PIPE MINUS     ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                            ___           ___               ___          ___
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
@@ -646,7 +537,7 @@ macros {
     symde_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-            &kp DE_AT   &kp DE_A_UMLAUT &kp DE_U_UMLAUT    ___      &kp DE_CARET    &bracketde     &bracede       &parende     &kp RA(MINUS)     ___
+            &kp DE_AT   &kp DE_A_UMLAUT &kp DE_U_UMLAUT    ___      &kp DE_CARET    &bracketde     &bracede       &parende     &kp DE_BACKSLASH    ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &hm F1 N1   &hm F2 N2    &number3de        &number4de    &kp DE_SZ   &lessgreaterde   &hm F7 N7    &number8de    &number9de     &hm F10 N0
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -660,9 +551,9 @@ macros {
     symit_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-            &kp DE_AT   &kp IT_A_GRAVE  &kp IT_U_GRAVE  &kp IT_I_GRAVE  &kp DE_CARET    &bracketde     &bracede       &parende     &kp RA(MINUS)     ___
+            &kp DE_AT   &kp IT_A_GRAVE  &kp IT_U_GRAVE  &kp IT_I_GRAVE  ___    &td_bracketit &td_braceit &td_parende  &kp IT_BACKSLASH     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1   &hm F2 N2    &number3it     &number4de    &kp DE_SZ   &lessgreaterde   &hm F7 N7    &number8it    &number9de     &hm F10 N0
+               &hm F1 N1   &hm F2 N2    &number3it     &number4de    &kp IT_CARET   &td_lessgreaterde   &hm F7 N7    &number8it    &number9de     &hm F10 N0
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &kp IT_O_GRAVE &hm IT_E_ACUTE IT_E_GRAVE &kp IT_C_CEDILLA &kp IT_PLUS ___          ___ &hm IT_PIPE IT_MINUS ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
