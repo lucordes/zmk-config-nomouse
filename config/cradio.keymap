@@ -346,6 +346,12 @@ macros {
             bindings = <&hm F10 N0>, <&kp EQUAL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        tickusint: tickusint {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp EN_ACUTE>, <&kp EN_GRAVE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
 
         timesusint: timesusint {
             compatible = "zmk,behavior-mod-morph";
@@ -502,7 +508,7 @@ macros {
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &hm F1 N1   &number2us    &number3us     &number4us   &kp EN_SHARP_S &td_lessgreaterus   &number7us    &number8us   &number9us     &number0us
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-            &kp EN_O_UMLAUT    ___            ___     &timesusint         ___       &kp GRAVE  &hm PIPE MINUS     ___           ___           ___
+            &kp EN_O_UMLAUT    ___            ___     &timesusint         ___          &tickusint   &hm PIPE MINUS     ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                            ___           ___               ___          ___
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
