@@ -30,12 +30,14 @@
 #define BASEUS 1
 #define BASEDE 2
 #define ANDROID 3
-#define SYMUSINT 4
-#define SYMUS 5
-#define SYMDE 6
-#define NAV 7
-#define NUMPAD 8
-#define ADJ 9
+#define BASEIT 4
+#define SYMUSINT 5
+#define SYMUS 6
+#define SYMDE 7
+#define SYMIT 8
+#define NAV 9
+#define NUMPAD 10
+#define ADJ 11
 
 
 
@@ -203,11 +205,25 @@ macros {
         = <&macro_tap &kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>
         ;
     };
+    braceit: braceit {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+        = <&macro_tap &kp IT_LEFT_BRACE &kp IT_RIGHT_BRACE &kp LEFT>
+        ;
+    };
     parenus: parenus {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings
         = <&macro_tap &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT>
+        ;
+    };
+    bracketit: bracketit {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings
+        = <&macro_tap &kp IT_LEFT_BRACKET &kp IT_RIGHT_BRACKET &kp LEFT>
         ;
     };
     lessgreaterus: lessgreaterus {
@@ -222,7 +238,7 @@ macros {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings
-        = <&macro_tap &kp LS(APOS) &kp SPC>
+        = <&macro_tap &kp LS(SQT) &kp SPC>
         ;
     };
     // '
@@ -230,7 +246,7 @@ macros {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings
-        = <&macro_tap &kp APOS &kp SPC>
+        = <&macro_tap &kp SQT &kp SPC>
         ;
     };
         // ö
@@ -238,7 +254,7 @@ macros {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings 
-        = <&macro_tap &kp LS(APOS) &kp O>
+        = <&macro_tap &kp LS(SQT) &kp O>
         ;
     };
             // ue
@@ -246,7 +262,7 @@ macros {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings 
-        = <&macro_tap &kp LS(APOS) &kp U>
+        = <&macro_tap &kp LS(SQT) &kp U>
         ;
     };
             // ae
@@ -254,7 +270,7 @@ macros {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings 
-        = <&macro_tap &kp LS(APOS) &kp A> 
+        = <&macro_tap &kp LS(SQT) &kp A> 
         ;
     };
     // caret us ^
@@ -389,6 +405,12 @@ macros {
             bindings = <&hm F3 N3>, <&singleqouteusint>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        number3it: number3it {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm F3 N3>, <&kp IT_SQT >;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
         number3usbase: number3usbase{
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -417,6 +439,12 @@ macros {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F8 N8>, <&kp LS(N3)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        number8it: number8it {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm F8 N8>, <&kp IT_HASH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         number9us: number9us {
@@ -467,6 +495,42 @@ macros {
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp LT>, <&kp GT>, <&lessgreaterus>;
+        };
+        td_lessgreaterde: td_lessgreaterde {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp DE_LT>, <&kp DE_GT>, <&lessgreaterde>;
+        };
+        td_bracketde: td_bracketde {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp DE_LEFT_BRACKET>, <&kp DE_RIGHT_BRACKET>, <&bracketde>;
+        };
+        td_bracede: td_bracede {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp DE_LEFT_BRACE>, <&kp DE_RIGHT_BRACE>, <&bracede>;
+        };
+        td_parende: td_parende {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp DE_LEFT_PARENTHESIS>, <&kp DE_RIGHT_PARENTHESIS>, <&parende>;
+        };
+        td_bracketit: td_bracketit {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp IT_LEFT_BRACKET>, <&kp IT_RIGHT_BRACKET>, <&bracketit>;
+        };
+        td_braceit: td_braceit {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp IT_LEFT_BRACE>, <&kp IT_RIGHT_BRACE>, <&braceit>;
         };
 
     };
@@ -537,7 +601,19 @@ macros {
       >;
     };
       
-
+    baseit_layer {
+      bindings = <
+        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+                 ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                 ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                 ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
+        // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                           ___           ___           &lt SYMIT SPC     ___
+        //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
+      >;
+    };
       symusint_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
@@ -573,6 +649,20 @@ macros {
                &hm F1 N1   &hm F2 N2    &number3de        &number4de    &kp DE_SZ   &lessgreaterde   &hm F7 N7    &number8de    &number9de     &hm F10 N0
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &kp DE_O_UMLAUT      ___            ___     &hm DE_TILDE DE_PLUS ___          &kp DE_ACUTE &hm DE_PIPE DE_MINUS ___           ___           ___
+        // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                           ___           ___               ___          ___
+        //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
+      >;
+    };
+
+    symit_layer {
+      bindings = <
+        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            &kp DE_AT   &kp IT_A_GRAVE  &kp IT_U_GRAVE  &kp IT_I_GRAVE  &kp DE_CARET    &bracketde     &bracede       &parende     &kp RA(MINUS)     ___
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+               &hm F1 N1   &hm F2 N2    &number3it     &number4de    &kp DE_SZ   &lessgreaterde   &hm F7 N7    &number8it    &number9de     &hm F10 N0
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        &kp IT_O_GRAVE &hm IT_E_ACUTE IT_E_GRAVE &kp IT_C_CEDILLA &kp IT_PLUS ___          ___ &hm IT_PIPE IT_MINUS ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                            ___           ___               ___          ___
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
@@ -617,7 +707,7 @@ macros {
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                 &kp CAPS  &bt BT_SEL 3   &bt BT_SEL 4     XXX        &bt BT_CLR           XXX           &kp LEFT    &kp SPC           &kp RIGHT           XXX
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-            &sys_reset     &bootloader   &tog BASEDE    &tog ANDROID  &tog BASEUS         XXX           XXX           XXX       XXX    XXX
+            &sys_reset     &bootloader   &tog BASEDE    &tog ANDROID  &tog BASEUS     &tog BASEIT        XXX           XXX       XXX    XXX
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                            XXX           XXX               XXX           XXX
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
