@@ -545,9 +545,9 @@ macros {
     symit_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-            &kp DE_AT   &kp IT_A_GRAVE  &kp IT_U_GRAVE  &kp IT_I_GRAVE  ___    &td_bracketit &td_braceit &td_parende  &kp IT_BACKSLASH     ___
+            &kp DE_AT   &kp IT_A_GRAVE  &kp IT_U_GRAVE  &kp IT_I_GRAVE  &kp IT_CARET    &td_bracketit &td_braceit &td_parende  &kp IT_BACKSLASH     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1   &hm F2 N2    &number3it     &number4de    &kp IT_CARET   &td_lessgreaterde   &hm F7 N7    &number8it    &number9de     &hm F10 N0
+               &hm F1 N1   &hm F2 N2    &number3it     &number4de    ___   &td_lessgreaterde   &hm F7 N7    &number8it    &number9de     &hm F10 N0
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &kp IT_O_GRAVE &hm IT_E_ACUTE IT_E_GRAVE &kp IT_C_CEDILLA &kp IT_PLUS ___          ___ &hm IT_PIPE IT_MINUS ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
