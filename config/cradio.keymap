@@ -114,6 +114,7 @@
             bindings = <&kp LEFT>;
         };
 
+
     };
 
 
@@ -196,6 +197,29 @@ macros {
         = <&macro_tap &kp LT &kp GT &kp LEFT>
         ;
     };
+            // grave space`
+    gravespace: gravespace {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings 
+        = <&macro_tap &kp GRAVE &kp SPC> 
+        ;
+    };
+    sqtspace: sqtspace {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings 
+        = <&macro_tap &kp SQT &kp SPC> 
+        ;
+    };
+    dqtspace: dqtspace {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings 
+        = <&macro_tap &kp DQT &kp SPC> 
+        ;
+    };
+
 
 };
 
@@ -270,7 +294,7 @@ macros {
         number2us: number2us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm F2 N2>, <&kp EN_DQT>;
+            bindings = <&hm F2 N2>, <&dqtspace>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         number2usbase: number2usbase{
@@ -282,7 +306,7 @@ macros {
         number3us: number3us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hm F3 N3>, <&kp EN_SQT>;
+            bindings = <&hm F3 N3>, <&sqtspace>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         number3it: number3it {
