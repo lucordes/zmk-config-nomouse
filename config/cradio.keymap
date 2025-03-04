@@ -113,33 +113,29 @@
             key-positions = <16 17>;
             bindings = <&kp LEFT>;
         };
+
             combo_sqtus {
             timeout-ms = <10>;
             key-positions = <2 12>;
-            bindings = <&kp SQT>;
-        };
-            combo_sqtus {
-            timeout-ms = <10>;
-            key-positions = <2 12>;
-            layres = <BASEUS>;
+            layres = <BASEUS,SYMUS>;
             bindings = <&kp SQT>;
         };
             combo_sqtusint {
             timeout-ms = <10>;
             key-positions = <2 12>;
-            layres = <BASEUSINT>;
+            layres = <BASEUSINT,SYMUSINT>;
             bindings = <&sqtspace>;
         };
             combo_sqtde {
             timeout-ms = <10>;
             key-positions = <2 12>;
-            layres = <BASEDE>;
+            layres = <BASEDE,SYMDE>;
             bindings = <&kp DE_SQT>;
         };
             combo_sqtit {
             timeout-ms = <10>;
             key-positions = <2 12>;
-            layres = <BASEIT>;
+            layres = <BASEIT,SYMIT>;
             bindings = <&kp IT_SQT>;
         };
 
