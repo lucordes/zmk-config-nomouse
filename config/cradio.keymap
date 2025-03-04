@@ -117,25 +117,25 @@
             combo_sqtus {
             timeout-ms = <10>;
             key-positions = <2 12>;
-            layers = <BASEUS,SYMUS>;
+            layers = <BASEUS SYMUS>;
             bindings = <&kp SQT>;
         };
             combo_sqtusint {
             timeout-ms = <10>;
             key-positions = <2 12>;
-            layers  = <BASEUSINT,SYMUSINT>;
+            layers  = <BASEUSINT SYMUSINT>;
             bindings = <&sqtspace>;
         };
             combo_sqtde {
             timeout-ms = <10>;
             key-positions = <2 12>;
-            layers = <BASEDE,SYMDE>;
+            layers = <BASEDE SYMDE>;
             bindings = <&kp DE_SQT>;
         };
             combo_sqtit {
             timeout-ms = <10>;
             key-positions = <2 12>;
-            layers = <BASEIT,SYMIT>;
+            layers = <BASEIT SYMIT>;
             bindings = <&kp IT_SQT>;
         };
 
