@@ -274,7 +274,15 @@ macros {
             tapping-term-ms = <200>;
             bindings = <&mo>, <&kp>;
         };
-
+        td_mytd: tap_dance_my {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_MY;
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings =
+           <&hm>,
+           <&kp>;
+        };
         //mod morph
       
         germanStyleDot: germanStyleDot {
