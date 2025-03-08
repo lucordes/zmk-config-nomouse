@@ -132,7 +132,12 @@
             layers = <BASEDE SYMDE>;
             bindings = <&kp DE_SQT>;
         };
-     
+            combo_sqtit {
+            timeout-ms = <10>;
+            key-positions = <2 12>;
+            layers = <BASEIT SYMIT>;
+            bindings = <&kp IT_SQT>;
+        };
 
     };
 
