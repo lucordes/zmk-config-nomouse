@@ -277,11 +277,9 @@ macros {
         td_mytd: tap_dance_my {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_MY;
-            #binding-cells = <2>;
+            #binding-cells = <3>;
             tapping-term-ms = <200>;
-            bindings =
-           <&hm>,
-           <&kp>;
+            bindings = <&hm> , <&kp>;
         };
         //mod morph
       
