@@ -448,24 +448,7 @@ macros {
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         
-        td_parende: td_parende {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp DE_LEFT_PARENTHESIS>, <&kp DE_RIGHT_PARENTHESIS>, <&parende>;
-        };
-        td_bracketit: td_bracketit {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp IT_LEFT_BRACKET>, <&kp IT_RIGHT_BRACKET>, <&bracketit>;
-        };
-        td_braceit: td_braceit {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp IT_LEFT_BRACE>, <&kp IT_RIGHT_BRACE>, <&braceit>;
-        };
+        
 
 
         td_lessgreaterde: td_lessgreaterde {
