@@ -196,8 +196,7 @@ macros {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings
-        = <&macro_press &kp >
-        , <&macro_tap &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT>
+        = <&macro_tap &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT>
         ;
     };
             //{}
@@ -448,53 +447,29 @@ macros {
             tapping-term-ms = <200>;
             bindings = <&hm RIGHT_BRACE LEFT_BRACE>, <&braceus>;
         };
-        mod_td_braceus: mod_td_braceus {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&td_braceus>, <&braceus>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
             //()
         td_parenus: td_parenus {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
+            bindings = <&hm RIGHT_PARENTHESIS LEFT_PARENTHESIS>, <&parenus>;
         };
-        mod_td_parenus: mod_td_parenus {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&parenus>, <&td_parenus>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+
             //[
         td_bracketus: td_bracketus {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&hm LEFT_BRACKET RIGHT_BRACKET>, <&bracketus>;
+            bindings = <&hm RIGHT_BRACKET LEFT_BRACKET>, <&bracketus>;
         };
-       mod_td_bracketus: mod_td_bracketus {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&td_bracketus>, <&bracketus>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+
             //<>
         td_lessgreaterus: td_lessgreaterus {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LT>, <&kp GT>;
+            bindings = <&hm GT LT>, <&lessgreaterus>;
         };
-        mod_td_lessgreaterus: mod_td_lessgreaterus {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&lessgreaterus>, <&td_lessgreaterus>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        
-        
 
             // German
             // <>
@@ -502,52 +477,30 @@ macros {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp DE_LT>, <&kp DE_GT>;
+            bindings = <&hm DE_GT DE_LT>, <&lessgreaterde>;
         };
-       mod_td_lessgreaterde: mod_td_lessgreaterde {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&lessgreaterde>, <&td_lessgreaterde>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+
             //[]
         td_bracketde: td_bracketde {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp DE_LEFT_BRACKET>, <&kp DE_RIGHT_BRACKET>, <&bracketde>;
+            bindings = <&hm DE_RIGHT_BRACKET DE_LEFT_BRACKET>, <&bracketde>;
         };
-       mod_td_bracketde: mod_td_bracketde {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&bracketde>, <&td_bracketde>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+
             //{}
         td_bracede: td_bracede {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp DE_LEFT_BRACE>, <&kp DE_RIGHT_BRACE>;
-        };
-       mod_td_bracede: mod_td_bracede {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&bracede>, <&td_bracede>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&hm DE_RIGHT_BRACE DE_LEFT_BRACE>, <&bracede>;
         };
             //()
         td_parende: td_parende {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp DE_LEFT_PARENTHESIS>, <&kp DE_RIGHT_PARENTHESIS>;
-        };
-       mod_td_parende: mod_td_parende {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&parende>, <&td_parende>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&hm DE_RIGHT_PARENTHESIS DE_LEFT_PARENTHESIS>, <&parende>;
         };
 
             // Italian is partly similar to german
@@ -556,27 +509,17 @@ macros {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp IT_LEFT_BRACKET>, <&kp IT_RIGHT_BRACKET>;
+            bindings = <&hm IT_RIGHT_BRACKET IT_LEFT_BRACKET>, <&bracketit>;
         };
-       mod_td_bracketit: mod_td_bracketit {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&bracketit>, <&td_bracketit>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+
             //{}
         td_braceit: td_braceit {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp IT_LEFT_BRACE>, <&kp IT_RIGHT_BRACE>;
+            bindings = <&hm IT_RIGHT_BRACE IT_LEFT_BRACE>, <&braceit>;
         };
-       mod_td_braceit: mod_td_braceit {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&braceit>, <&td_braceit>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+
 
     };
 
@@ -662,9 +605,9 @@ macros {
       symusint_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               &kp AT    &kp EN_A_UMLAUT &kp EN_U_UMLAUT    ___      &kp CARET      &td_bracketus   &mod_td_braceus     &mod_td_parenus     &kp BACKSLASH     ___
+               &kp AT    &kp EN_A_UMLAUT &kp EN_U_UMLAUT    ___      &kp CARET      &td_bracketus   &td_braceus     &td_parenus     &kp BACKSLASH     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1   &number2us    &number3us     &number4us   &kp EN_SHARP_S &mod_td_lessgreaterus &number7us    &number8us   &number9us     &number0us
+               &hm F1 N1   &number2us    &number3us     &number4us   &kp EN_SHARP_S &td_lessgreaterus &number7us    &number8us   &number9us     &number0us
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             &kp EN_O_UMLAUT    ___            ___     &timesusint         ___          &tickusint   &hm PIPE MINUS     ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
@@ -689,9 +632,9 @@ macros {
     symde_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-            &kp DE_AT   &kp DE_A_UMLAUT &kp DE_U_UMLAUT    ___      &kp DE_CARET   &mod_td_bracketde &mod_td_bracede &mod_td_parende &kp DE_BACKSLASH    ___
+            &kp DE_AT   &kp DE_A_UMLAUT &kp DE_U_UMLAUT    ___      &kp DE_CARET   &td_bracketde &td_bracede &td_parende &kp DE_BACKSLASH    ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1   &hm F2 N2    &number3de        &number4de    &kp DE_SZ   &mod_td_lessgreaterde &hm F7 N7 &number8de   &number9de     &hm F10 N0
+               &hm F1 N1   &hm F2 N2    &number3de        &number4de    &kp DE_SZ   &td_lessgreaterde &hm F7 N7 &number8de   &number9de     &hm F10 N0
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &kp DE_O_UMLAUT      ___            ___     &hm DE_TILDE DE_PLUS ___          &kp DE_ACUTE &hm DE_PIPE DE_MINUS ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
@@ -703,9 +646,9 @@ macros {
     symit_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-            &kp DE_AT   &kp IT_A_GRAVE  &kp IT_U_GRAVE  &kp IT_I_GRAVE  &kp IT_CARET &mod_td_bracketit &mod_td_braceit &mod_td_parende  &kp IT_BACKSLASH     ___
+            &kp DE_AT   &kp IT_A_GRAVE  &kp IT_U_GRAVE  &kp IT_I_GRAVE  &kp IT_CARET &td_bracketit &td_braceit &td_parende  &kp IT_BACKSLASH     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1   &hm F2 N2    &number3it     &number4de    ___   &mod_td_lessgreaterde   &hm F7 N7    &number8it    &number9de     &hm F10 N0
+               &hm F1 N1   &hm F2 N2    &number3it     &number4de    ___   &td_lessgreaterde   &hm F7 N7    &number8it    &number9de     &hm F10 N0
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &kp IT_O_GRAVE &hm IT_E_ACUTE IT_E_GRAVE &kp IT_C_CEDILLA &kp IT_PLUS ___          ___ &hm IT_PIPE IT_MINUS ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
