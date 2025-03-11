@@ -421,12 +421,12 @@ macros {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&lessgreaterus>, <&kp LT>;
+            bindings = <&kp GT>, <&kp LT>;
         };
         mod_td_lessgreaterus: mod_td_lessgreaterus {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&td_lessgreaterus>, <&kp GT>;
+            bindings = <&lessgreaterus>, <&td_lessgreaterus>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         td_lessgreaterde: td_lessgreaterde {
