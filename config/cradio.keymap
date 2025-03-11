@@ -469,7 +469,6 @@ macros {
             #binding-cells = <0>;
             bindings = <&bracketus>, <&td_bracketus>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-            keep-mods = <(MOD_RSFT)>;
         };
             //<>
         td_lessgreaterus: td_lessgreaterus {
