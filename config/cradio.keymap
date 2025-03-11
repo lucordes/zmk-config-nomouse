@@ -469,13 +469,14 @@ macros {
             #binding-cells = <0>;
             bindings = <&bracketus>, <&td_bracketus>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_RSFT)>;
         };
             //<>
         td_lessgreaterus: td_lessgreaterus {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp GT>, <&kp LT>;
+            bindings = <&kp LT>, <&kp GT>;
         };
         mod_td_lessgreaterus: mod_td_lessgreaterus {
             compatible = "zmk,behavior-mod-morph";
