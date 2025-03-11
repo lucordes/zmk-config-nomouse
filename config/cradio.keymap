@@ -472,7 +472,7 @@ macros {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
+            bindings = <&hm LEFT_BRACKET RIGHT_BRACKET>, <&bracketus>;
         };
        mod_td_bracketus: mod_td_bracketus {
             compatible = "zmk,behavior-mod-morph";
