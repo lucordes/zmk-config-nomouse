@@ -274,13 +274,6 @@ macros {
             tapping-term-ms = <200>;
             bindings = <&mo>, <&kp>;
         };
-        td_mytd: tap_dance_my {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_MY;
-            #binding-cells = <3>;
-            tapping-term-ms = <200>;
-            bindings = <&hm> , <&kp>;
-        };
         //mod morph
       
         germanStyleDot: germanStyleDot {
@@ -428,7 +421,13 @@ macros {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LT>, <&kp GT>, <&lessgreaterus>;
+            bindings = <&lessgreaterus>, <&kp LT>;
+        };
+        mod_td_lessgreaterus: mod_td_lessgreaterus {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&td_lessgreaterus>, <&kp GT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         td_lessgreaterde: td_lessgreaterde {
             compatible = "zmk,behavior-tap-dance";
@@ -553,7 +552,7 @@ macros {
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
                &kp AT    &kp EN_A_UMLAUT &kp EN_U_UMLAUT    ___      &kp CARET         &td_bracketus    &td_braceus     &td_parenus     &kp BACKSLASH     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &hm F1 N1   &number2us    &number3us     &number4us   &kp EN_SHARP_S &td_lessgreaterus   &number7us    &number8us   &number9us     &number0us
+               &hm F1 N1   &number2us    &number3us     &number4us   &kp EN_SHARP_S &mod_td_lessgreaterus &number7us    &number8us   &number9us     &number0us
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             &kp EN_O_UMLAUT    ___            ___     &timesusint         ___          &tickusint   &hm PIPE MINUS     ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
