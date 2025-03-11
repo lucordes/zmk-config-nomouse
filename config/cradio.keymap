@@ -195,8 +195,9 @@ macros {
     bracketus: bracketus {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <40>;
     bindings
-        = <&macro_tap &kp LSHFT &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT>
+        = <&macro_tap &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT>
         ;
     };
             //{}
