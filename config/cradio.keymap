@@ -441,7 +441,7 @@ macros {
         mod_td_braceus: mod_td_braceus {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&braceus>, <&td_braceus>;
+            bindings = <&td_braceus>, <&braceus>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
             //()
