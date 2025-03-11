@@ -195,7 +195,6 @@ macros {
     bracketus: bracketus {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    wait-ms = <40>;
     bindings
         = <&macro_press &kp >
         , <&macro_tap &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT>
@@ -206,7 +205,7 @@ macros {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings
-        = <&macro_tap &kp CAPS &kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT &kp CAPS &kp LSHFT>
+        = <&macro_tap &kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>
         ;
     };
             //{}
@@ -442,19 +441,18 @@ macros {
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
             // US
-            //[]
+            //{}
         td_braceus: td_braceus {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
+            bindings = <&hm RIGHT_BRACE LEFT_BRACE>, <&braceus>;
         };
         mod_td_braceus: mod_td_braceus {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&td_braceus>, <&braceus>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-            keep-mods = <(MOD_RSFT)>;
         };
             //()
         td_parenus: td_parenus {
@@ -469,7 +467,7 @@ macros {
             bindings = <&parenus>, <&td_parenus>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-            //{}
+            //[
         td_bracketus: td_bracketus {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -664,7 +662,7 @@ macros {
       symusint_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               &kp AT    &kp EN_A_UMLAUT &kp EN_U_UMLAUT    ___      &kp CARET      &mod_td_bracketus    &mod_td_braceus     &mod_td_parenus     &kp BACKSLASH     ___
+               &kp AT    &kp EN_A_UMLAUT &kp EN_U_UMLAUT    ___      &kp CARET      &td_bracketus   &mod_td_braceus     &mod_td_parenus     &kp BACKSLASH     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &hm F1 N1   &number2us    &number3us     &number4us   &kp EN_SHARP_S &mod_td_lessgreaterus &number7us    &number8us   &number9us     &number0us
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
