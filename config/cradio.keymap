@@ -447,24 +447,7 @@ macros {
             bindings = <&lessgreaterus>, <&td_lessgreaterus>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        mod_td_bracketus: mod_td_bracketus {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&bracketus>, <&td_bracketus>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        td_lessgreaterus: td_lessgreaterus {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp GT>, <&kp LT>;
-        };
-        mod_td_lessgreaterus: mod_td_lessgreaterus {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&lessgreaterus>, <&td_lessgreaterus>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+        
         td_parende: td_parende {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -606,7 +589,7 @@ macros {
       symusint_layer {
       bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-               &kp AT    &kp EN_A_UMLAUT &kp EN_U_UMLAUT    ___      &kp CARET         &td_bracketus    &td_braceus     &td_parenus     &kp BACKSLASH     ___
+               &kp AT    &kp EN_A_UMLAUT &kp EN_U_UMLAUT    ___      &kp CARET      &mod_td_bracketus    &mod_td_braceus     &mod_td_parenus     &kp BACKSLASH     ___
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &hm F1 N1   &number2us    &number3us     &number4us   &kp EN_SHARP_S &mod_td_lessgreaterus &number7us    &number8us   &number9us     &number0us
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
