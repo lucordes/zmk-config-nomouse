@@ -197,7 +197,8 @@ macros {
     #binding-cells = <0>;
     wait-ms = <40>;
     bindings
-        = <&macro_tap &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT>
+        = <&macro_press &kp >
+        , <&macro_tap &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT>
         ;
     };
             //{}
@@ -205,7 +206,7 @@ macros {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings
-        = <&macro_tap &kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>
+        = <&macro_tap &kp CAPS &kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT &kp CAPS &kp LSHFT>
         ;
     };
             //{}
@@ -453,6 +454,7 @@ macros {
             #binding-cells = <0>;
             bindings = <&td_braceus>, <&braceus>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_RSFT)>;
         };
             //()
         td_parenus: td_parenus {
