@@ -144,12 +144,13 @@
 
             //US base inherits from us int layer. Most stays except ' "
             // instead of that we can also just copy all the stuff that could be the same likeh we do it in the italian layer.
-            // There we use some german numbers in SYMIT.
+            // There we use some german numbers in SYMIT. Both approaches are possible and valid.
+            // "When configured as a then-layer, a layer's activation status is entirely controlled by the conditional layers"
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <BASEUS SYMUS>;
-            then-layer = <SYMUSINT>;
+            if-layers = <BASEUS SYMUSINT>;
+            then-layer = <SYMUS>;
         };
     };
 
@@ -602,7 +603,7 @@ macros {
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                  ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                           ___           ___           &lt SYMUS SPC     ___
+                                                           ___           ___        &lt SYMUSINT SPC     ___
         //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
       >;
     };
