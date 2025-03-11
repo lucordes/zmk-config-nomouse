@@ -517,12 +517,12 @@ macros {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp DE_LEFT_BRACE>, <&kp DE_RIGHT_BRACE>, <&bracede>;
+            bindings = <&kp DE_LEFT_BRACE>, <&kp DE_RIGHT_BRACE>;
         };
        mod_td_bracede: mod_td_bracede {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&braced>, <&td_braced>;
+            bindings = <&bracede>, <&td_bracede>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
             //()
@@ -530,7 +530,7 @@ macros {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp DE_LEFT_PARENTHESIS>, <&kp DE_RIGHT_PARENTHESIS>, <&parende>;
+            bindings = <&kp DE_LEFT_PARENTHESIS>, <&kp DE_RIGHT_PARENTHESIS>;
         };
        mod_td_parende: mod_td_parende {
             compatible = "zmk,behavior-mod-morph";
@@ -545,7 +545,7 @@ macros {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp IT_LEFT_BRACKET>, <&kp IT_RIGHT_BRACKET>, <&bracketit>;
+            bindings = <&kp IT_LEFT_BRACKET>, <&kp IT_RIGHT_BRACKET>;
         };
        mod_td_bracketit: mod_td_bracketit {
             compatible = "zmk,behavior-mod-morph";
@@ -558,7 +558,7 @@ macros {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp IT_LEFT_BRACE>, <&kp IT_RIGHT_BRACE>, <&braceit>;
+            bindings = <&kp IT_LEFT_BRACE>, <&kp IT_RIGHT_BRACE>;
         };
        mod_td_braceit: mod_td_braceit {
             compatible = "zmk,behavior-mod-morph";
