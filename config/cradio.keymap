@@ -403,19 +403,37 @@ macros {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>, <&braceus>;
+            bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
+        };
+        mod_td_braceus: mod_td_braceus {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&braceus>, <&td_braceus>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         td_parenus: td_parenus {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>, <&parenus>;
+            bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
+        };
+        mod_td_parenus: mod_td_parenus {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&parenus>, <&td_parenus>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         td_bracketus: td_bracketus {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>, <&bracketus>;
+            bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
+        };
+       mod_td_bracketus: mod_td_bracketus {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bracketus>, <&td_bracketus>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         td_lessgreaterus: td_lessgreaterus {
             compatible = "zmk,behavior-tap-dance";
@@ -429,6 +447,44 @@ macros {
             bindings = <&lessgreaterus>, <&td_lessgreaterus>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        mod_td_bracketus: mod_td_bracketus {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bracketus>, <&td_bracketus>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        td_lessgreaterus: td_lessgreaterus {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp GT>, <&kp LT>;
+        };
+        mod_td_lessgreaterus: mod_td_lessgreaterus {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&lessgreaterus>, <&td_lessgreaterus>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        td_parende: td_parende {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp DE_LEFT_PARENTHESIS>, <&kp DE_RIGHT_PARENTHESIS>, <&parende>;
+        };
+        td_bracketit: td_bracketit {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp IT_LEFT_BRACKET>, <&kp IT_RIGHT_BRACKET>, <&bracketit>;
+        };
+        td_braceit: td_braceit {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp IT_LEFT_BRACE>, <&kp IT_RIGHT_BRACE>, <&braceit>;
+        };
+
+
         td_lessgreaterde: td_lessgreaterde {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
