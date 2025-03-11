@@ -52,7 +52,7 @@
   ╰───────────╮ 30  31 │ │ 32  33 ╭───────────╯
               ╰────────╯ ╰────────╯            */
 
-//ZMK_COMBO(pwr,  &kp C_POWER, 0 4, ALL)
+
     combos {
         compatible = "zmk,combos";
             combo_five {
@@ -64,13 +64,13 @@
             timeout-ms = <50>;
             key-positions = <6 16>;
             bindings = <&kp N6>;
-            layers = <BASEDE SYMDE>;
+            layers = <BASEDE SYMDE BASEIT SYMIT>;
         };
             combo_sixus {
             timeout-ms = <50>;
             key-positions = <6 16>;
-            bindings = <&number6us>;
-            layers = <BASEUSINT SYMUSINT>;
+            bindings = <&number6us>; // LS(6)->&
+            layers = <BASEUSINT BASEUS SYMUSINT SYMUS>;
         };
             combo_up {
             timeout-ms = <arrowcombotime>;
@@ -144,7 +144,7 @@
 
             //US base inherits from us int layer. Most stays except ' "
             // instead of that we can also just copy all the stuff that could be the same likeh we do it in the italian layer.
-            // There we use some german numbers.
+            // There we use some german numbers in SYMIT.
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
