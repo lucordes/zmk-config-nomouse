@@ -467,7 +467,7 @@ macros {
        mod_td_bracketus: mod_td_bracketus {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&bracketus>, <&td_bracketus>;
+            bindings = <&td_bracketus>, <&bracketus>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
             //<>
