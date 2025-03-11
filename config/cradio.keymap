@@ -142,8 +142,16 @@
     };
 
 
-
-
+            //US base inherits from us int layer. Most stays except ' "
+            // instead of that we can also just copy all the stuff that could be the same likeh we do it in the italian layer.
+            // There we use some german numbers.
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <BASEUS SYMUS>;
+            then-layer = <SYMUSINT>;
+        };
+    };
 
 
 
@@ -275,13 +283,14 @@ macros {
             bindings = <&mo>, <&kp>;
         };
         //mod morph
-      
+            // SL(.)->:
         germanStyleDot: germanStyleDot {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp COLON>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            // SL(,)->;
         germanStyeComma: germanStyeComma {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -289,116 +298,139 @@ macros {
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+            // German numbers
+            //3'
         number3de: number3de {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F3 N3>, <&kp DE_SQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
+            //4$
         number4de: number4de {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F4 N4>, <&hm DE_EURO DE_DOLLAR>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            //8#
         number8de: number8de {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F8 N8>, <&kp DE_HASH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            //9?
         number9de: number9de {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F9 N9>, <&kp DE_QMARK>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+            // US Numbers
+            //2"
         number2us: number2us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F2 N2>, <&dqtspace>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            //2"
         number2usbase: number2usbase{
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F2 N2>, <&kp DQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            //3'
         number3us: number3us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F3 N3>, <&sqtspace>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        number3it: number3it {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&hm F3 N3>, <&kp IT_SQT >;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+            //3'
         number3usbase: number3usbase{
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F3 N3>, <&kp SQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            //4$
         number4us: number4us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F4 N4>, <&hm EN_EURO DOLLAR>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            //6&
         number6us: number6us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F6 N6>, <&kp AMPS>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            //7/
         number7us: number7us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F7 N7>, <&kp SLASH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            //8#
         number8us: number8us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F8 N8>, <&kp HASH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        number8it: number8it {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&hm F8 N8>, <&kp IT_HASH>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+
+            //9?
         number9us: number9us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F9 N9>, <&kp QMARK>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            // 0=
         number0us: number0us {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm F10 N0>, <&kp EQUAL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            // Italian shares some with german
+           //3'
+        number3it: number3it {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm F3 N3>, <&kp IT_SQT >;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+            //8#
+        number8it: number8it {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hm F8 N8>, <&kp IT_HASH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+            // ´`
         tickusint: tickusint {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp EN_ACUTE>, <&kp EN_GRAVE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
+            // ~+ *
         timesusint: timesusint {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&hm TILDE PLUS>, <&kp STAR>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            // US
+            //[]
         td_braceus: td_braceus {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -411,6 +443,7 @@ macros {
             bindings = <&braceus>, <&td_braceus>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            //()
         td_parenus: td_parenus {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -423,6 +456,7 @@ macros {
             bindings = <&parenus>, <&td_parenus>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            //{}
         td_bracketus: td_bracketus {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -435,6 +469,7 @@ macros {
             bindings = <&bracketus>, <&td_bracketus>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+            //<>
         td_lessgreaterus: td_lessgreaterus {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -450,42 +485,86 @@ macros {
         
         
 
-
+            // German
+            // <>
         td_lessgreaterde: td_lessgreaterde {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp DE_LT>, <&kp DE_GT>, <&lessgreaterde>;
+            bindings = <&kp DE_LT>, <&kp DE_GT>;
         };
+       mod_td_lessgreaterde: mod_td_lessgreaterde {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&lessgreaterde>, <&td_lessgreaterde>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+            //[]
         td_bracketde: td_bracketde {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp DE_LEFT_BRACKET>, <&kp DE_RIGHT_BRACKET>, <&bracketde>;
         };
+       mod_td_bracketde: mod_td_bracketde {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bracketde>, <&td_bracketde>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+            //{}
         td_bracede: td_bracede {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp DE_LEFT_BRACE>, <&kp DE_RIGHT_BRACE>, <&bracede>;
         };
+       mod_td_bracede: mod_td_bracede {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&braced>, <&td_braced>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+            //()
         td_parende: td_parende {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp DE_LEFT_PARENTHESIS>, <&kp DE_RIGHT_PARENTHESIS>, <&parende>;
         };
+       mod_td_parende: mod_td_parende {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&parende>, <&td_parende>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+            // Italian is partly similar to german
+            //[]
         td_bracketit: td_bracketit {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp IT_LEFT_BRACKET>, <&kp IT_RIGHT_BRACKET>, <&bracketit>;
         };
+       mod_td_bracketit: mod_td_bracketit {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bracketit>, <&td_bracketit>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+            //{}
         td_braceit: td_braceit {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp IT_LEFT_BRACE>, <&kp IT_RIGHT_BRACE>, <&braceit>;
+        };
+       mod_td_braceit: mod_td_braceit {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&braceit>, <&td_braceit>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
     };
