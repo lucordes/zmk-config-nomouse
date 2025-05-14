@@ -78,21 +78,25 @@
             timeout-ms = <arrowcombotime>;
             key-positions = <11 12 13>;
             bindings = <&kp UP>;
+            layers = <BASEUSINT BASEUS BASEDE SYMUSINT SYMUS SYMDE>;
         };
             combo_down {
             timeout-ms = <arrowcombotime>;
             key-positions = <11 13>;
             bindings = <&kp DOWN>;
+            layers = <BASEUSINT BASEUS BASEDE SYMUSINT SYMUS SYMDE>;
         };
             combo_right {
             timeout-ms = <arrowcombotime>;
             key-positions = <12 13>;
             bindings = <&kp RIGHT>;
+            layers = <BASEUSINT BASEUS BASEDE SYMUSINT SYMUS SYMDE>;
         };
             combo_left {
             timeout-ms = <arrowcombotime>;
             key-positions = <11 12>;
             bindings = <&kp LEFT>;
+            layers = <BASEUSINT BASEUS BASEDE SYMUSINT SYMUS SYMDE>;
         };
 
         combo_uprhand {
